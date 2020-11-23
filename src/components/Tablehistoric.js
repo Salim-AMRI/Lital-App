@@ -11,6 +11,10 @@ import {
   putUserUpdate,
 } from "../actions/productAction";
 import { getHistory } from "../actions/historicAction";
+import filterFactory, { textFilter, dateFilter } from 'react-bootstrap-table2-filter';
+
+
+
 
 const { SearchBar } = Search;
 
@@ -30,25 +34,36 @@ const TableHistoric = (props) => {
     {
       dataField: "date",
       text: "Date",
+      filter: dateFilter(),
+      headerStyle: () => {
+        return { width: "25%" };
+      },
     },
     {
       dataField: "username",
       text: "Nom de l'intervenant",
+      filter: textFilter()
     },
     {
       dataField: "name",
       text: "Nom du produit",
+      filter: textFilter()
     },
 
     {
       dataField: "modele",
       text: "Modéle",
+      filter: textFilter()
     },
     {
       dataField: "operation",
       text: "Operation",
+      filter: textFilter()
     }
   ];
+
+
+
   return (
     <Container>
       {props.historic ? (
@@ -59,6 +74,7 @@ const TableHistoric = (props) => {
           columns={columns}
           defaultSorted={defaultSorted}
           search
+          filter={ filterFactory() } 
         >
           {(props) => (
             <div>
@@ -77,6 +93,7 @@ const TableHistoric = (props) => {
               <BootstrapTable
                 {...props.baseProps}
                 pagination={paginationFactory()}
+                filter={ filterFactory() }
               />
             </div>
           )}

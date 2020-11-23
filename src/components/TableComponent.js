@@ -4,7 +4,7 @@ import BootstrapTable from "react-bootstrap-table-next";
 import { Container, Row, Col, Spinner } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfo, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
-import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
+import ToolkitProvider, { Search, CSVExport } from "react-bootstrap-table2-toolkit";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import { Link, NavLink } from "react-router-dom";
 import { connect } from "react-redux";
@@ -14,6 +14,9 @@ import {
   postUserCreate,
   putUserUpdate,
 } from "../actions/productAction";
+import filterFactory, { textFilter } from 'react-bootstrap-table2-filter';
+
+const { ExportCSVButton } = CSVExport;
 
 /*------------*/
 const { SearchBar } = Search;
@@ -51,6 +54,7 @@ const TableComponent = (props) => {
       dataField: "annee",
       text: "Année",
       sort: true,
+      filter: textFilter(),
       headerStyle: () => {
         return { width: "10%" };
       },
@@ -59,6 +63,7 @@ const TableComponent = (props) => {
       dataField: "saison",
       text: "Saison",
       sort: true,
+      filter: textFilter(),
       headerStyle: () => {
         return { width: "10%" };
       },
@@ -67,6 +72,7 @@ const TableComponent = (props) => {
       dataField: "createur",
       text: "Createur",
       sort: true,
+      filter: textFilter(),
       headerStyle: () => {
         return { width: "10%" };
       },
@@ -75,6 +81,7 @@ const TableComponent = (props) => {
       dataField: "gamme",
       text: "Gamme",
       sort: true,
+      filter: textFilter(),
       headerStyle: () => {
         return { width: "10%" };
       },
@@ -83,6 +90,7 @@ const TableComponent = (props) => {
       dataField: "sex",
       text: "Sex",
       sort: true,
+      filter: textFilter(),
       headerStyle: () => {
         return { width: "10%" };
       },
@@ -91,6 +99,7 @@ const TableComponent = (props) => {
       dataField: "modele",
       text: "Modéle",
       sort: true,
+      filter: textFilter(),
       headerStyle: () => {
         return { width: "10%" };
       },
@@ -99,6 +108,7 @@ const TableComponent = (props) => {
       dataField: "name",
       text: "Name",
       sort: true,
+      filter: textFilter(),
       headerStyle: () => {
         return { width: "10%" };
       },
@@ -106,6 +116,7 @@ const TableComponent = (props) => {
     {
       dataField: "mesure",
       text: "Mesure",
+      filter: textFilter(),
       sort: true,
       headerStyle: () => {
         return { width: "10%" };
@@ -115,6 +126,7 @@ const TableComponent = (props) => {
       dataField: "qte",
       text: "Quantité",
       sort: true,
+      filter: textFilter(),
       headerStyle: () => {
         return { width: "10%" };
       },
@@ -155,6 +167,7 @@ const TableComponent = (props) => {
     },
   ];
 
+
   return (
     <Container>
       {props.getUsersList ? (
@@ -165,8 +178,10 @@ const TableComponent = (props) => {
           columns={columns}
           defaultSorted={defaultSorted}
           search
+          exportCSV
         >
           {(props) => (
+
             <div>
               <Row>
                 <Col>
@@ -177,6 +192,17 @@ const TableComponent = (props) => {
                     </Btn>
                   </Link>
                 </Col>
+                {/* <button><ExportCSVButton { ...props.csvProps }>Enregistrez</ExportCSVButton></button> */}
+                <Col>
+                <Link >
+                  <Btn style={{marginBottom : "10px"}} className="styleb py-2" icon labelPosition="left">
+                    <Icon name="download" />
+                    
+                    <ExportCSVButton {...props.csvProps}> Exporter</ExportCSVButton>
+                  </Btn>
+                  </Link>
+                  </Col>
+                  
 
                 {/*-search-------------------*/}
                 <Col>
@@ -184,28 +210,33 @@ const TableComponent = (props) => {
                     <SearchBar
                       className="styleb"
                       {...props.searchProps}
-                      placeholder="Search .."
+                      placeholder="Recherche avancée .."
                     />
                   </div>
                 </Col>
               </Row>
+
+
               <BootstrapTable
                 {...props.baseProps}
                 pagination={paginationFactory()}
+                filter={filterFactory()}
               />
+
+
             </div>
           )}
         </ToolkitProvider>
       ) : (
-        /*-search---------------------- */
-        <div className="text-center">
-          {props.errorUsersList ? (
-            <h4>{props.errorUsersList}</h4>
-          ) : (
-            <Spinner color="dark" />
-          )}
-        </div>
-      )}
+          /*-search---------------------- */
+          <div className="text-center">
+            {props.errorUsersList ? (
+              <h4>{props.errorUsersList}</h4>
+            ) : (
+                <Spinner color="dark" />
+              )}
+          </div>
+        )}
     </Container>
   );
 };
@@ -223,3 +254,6 @@ export default connect(mapStateToProps, {
   putUserUpdate,
   deleteUser,
 })(TableComponent);
+
+
+//défili

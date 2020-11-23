@@ -7,6 +7,7 @@ import {
   Nav,
   NavItem,
   NavLink,
+  NavbarText,
   Container,
 } from "reactstrap";
 import { NavLink as soltanLink } from "react-router-dom";
