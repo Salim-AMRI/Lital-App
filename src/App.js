@@ -1,12 +1,20 @@
-import React from 'react';
-import SignUp from './Component/SignUp'
-import './App.css';
+import React from "react";
+import { Provider } from "react-redux";
+import store from "./store";
+import "./App.css";
+import SignUp from "./components/SignUp/SignUp";
+import SingIn from "./components/ManagingUser/addUser";
+import VueUser from "./components/ManagingUser/vueUser";
+import Welcome from "./components/Welcome"
 
 function App() {
   return (
-    <div className="App">
+    <Provider store={store}>
       <SignUp />
-    </div>
+      <Welcome />
+      <SingIn />
+      <VueUser />
+    </Provider>
   );
 }
 

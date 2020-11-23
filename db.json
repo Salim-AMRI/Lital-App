@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "userName": "mohamed",
+      "userMail": "clo@co.co",
+      "passWord": "ccccc4447!",
+      "firstName": "salim",
+      "lastName": "amri",
+      "userPhone": "55212121",
+      "userPost": "Administrateur",
+      "id": 1
+    },
+    {
+      "userName": "Boh",
+      "userMail": "didi@lo.tn",
+      "passWord": "clo1987!",
+      "firstName": "ahmed",
+      "lastName": "loulou",
+      "userPhone": "45654525",
+      "userPost": "Opérateur",
+      "id": 2
+    },
+    {
+      "userName": "salim",
+      "userMail": "slim@co.co",
+      "passWord": "cccccccc111",
+      "firstName": "salim",
+      "lastName": "amri",
+      "userPhone": "55240223",
+      "userPost": "Administrateur",
+      "id": 4
+    }
+  ],
+  "products": [
+    {
+      "_id": "1",
+      "titre": "Horloge murale",
+      "type": "Decoration",
+      "etat": "Ancienne",
+      "photo": "https://www.jardins-dhiver.com/4201-thickbox_default/horloge-murale-cafe-du-parc-24-cm.jpg",
+      "description": "L' horloge café du Parc au style rétro chic et sobre sera l'élément au centre de vos rendez-vous.Vous pourrez la placer dans la pièce de votre choix.",
+      "prix": 90
+    }
+  ],
+  "history": [
+    {
+      "id": 1,
+      "date": "",
+      "hour": "",
+      "operation": "",
+      "productID": "",
+      "userID": ""
+    }
+  ]
+}
