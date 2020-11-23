@@ -1,0 +1,41 @@
+{
+  "users": [
+    {
+      "userName": "Med",
+      "userMail": "amri@co.co",
+      "passWord": "clo2020!!",
+      "firstName": "Salim",
+      "lastName": "Amri",
+      "userPhone": "55240423",
+      "userPost": "Administrateur",
+      "id": 1
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "reference": "",
+      "type": "",
+      "name": "",
+      "collection": "",
+      "mark": "",
+      "phase": "",
+      "measure": "",
+      "color": "",
+      "picture": "",
+      "location": "",
+      "cardboard": "",
+      "quantity": ""
+    }
+  ],
+  "history": [
+    {
+      "id": 1,
+      "date": "",
+      "hour": "",
+      "operation": "",
+      "productID": "",
+      "userID": ""
+    }
+  ]
+}
